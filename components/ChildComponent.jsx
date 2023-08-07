@@ -1,15 +1,13 @@
-import React from 'react'
-
 export default function ChildComponent({ transferData }) {
   return (
-    <div>
-      <h3>CHILD COMPONENT STARTS</h3>
+    <div className='max-w-fit sm:p-10 ring-4 ring-green-500 sm:prose-xs'>
+      <p>this is the child component inside green border</p>
       <input
         type='text'
-        placeholder='any data on child'
+        placeholder='write here..'
         onChange={e => transferData(e.target.value)}
+        className='ring-1'
       />
-      <h3>CHILD COMPONENT END</h3>
     </div>
   )
 }
