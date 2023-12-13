@@ -3,7 +3,7 @@ import '../styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className='min-h-screen bg-[#f7ff99] bg-my_bg '>
+    <div className='bg-[oklch(96%_0.006_360) w-full '>
       <Component {...pageProps} />
     </div>
   )

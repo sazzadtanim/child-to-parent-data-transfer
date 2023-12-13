@@ -1,19 +1,15 @@
 export default function ChildComponent({ transferData }) {
   return (
-    <div className='max-w-fit sm:p-10 ring-4 ring-green-500 sm:prose-xs'>
-      <p>this is the child component inside green border</p>
+    <div className='p-2 ring-4 ring-[oklch(80%_0.2_350)] lg:p-12'>
+      <p className='first-letter:capitalize'>
+        this is the child component inside pink border
+      </p>
       <input
         type='text'
         placeholder='write here..'
         onChange={e => transferData(e.target.value)}
-        className='ring-1'
+        className='p-2 ring-1'
       />
     </div>
   )
 }
-
-//In child component, input of the transferData function is the output of the transferData function in parent componet
-
-//In child component:
-// 1) set a transferData function on prop
-// 2) put childData as the input of the transferData function

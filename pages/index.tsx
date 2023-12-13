@@ -4,41 +4,43 @@ import ChildComponent from '../components/ChildComponent'
 export default function Home() {
   const [rcvChildData, setChildData] = useState('')
   return (
-    <div className='prose-xs prose-slate mx-auto grid items-center justify-center bg-white p-2 sm:prose sm:p-10'>
-      <div className=''>
-        <h1 className=''>transfer data from child to Parent Component</h1>
-        <ChildComponent
-          transferData={(childData: string) => setChildData(childData)}
-        />
+    <div className='container prose prose-slate mx-auto grid items-center justify-center p-2 lg:pt-20'>
+      <h1 className='capitalize'>
+        transfer data from child to Parent Component
+      </h1>
 
-        <p className='inline ring-4'>
-          Child data received in Parent:{' '}
-          <span className='text-lg font-bold'>{rcvChildData}</span>
-        </p>
-
-        <div>
-          <ol>
-            <li>
-              In child component set a function (transferData) on prop
-              <pre>{`export default function ChildComponent({ transferData }) {  return (
-    <div className='max-w-fit p-10 ring-4 ring-green-500 prose'>
-      <p>this is the child component inside green border</p>
-      <input
-        type='text'
-        placeholder='write here..'
-        onChange={e => transferData(e.target.value)}
-        className='ring-1'
+      <ChildComponent
+        transferData={(childData: string) => setChildData(childData)}
       />
-    </div>
+
+      <p className='p-10 ring-4'>
+        Child data received in Parent:
+        <span className='h-4 w-20 text-lg font-bold ring-2'>
+          {' '}
+          {rcvChildData}
+        </span>
+      </p>
+
+      <div className='overflow-scroll'>
+        <ol>
+          <li>
+            <h2> In child component send data inside transferFunction</h2>
+            <pre>{`export default function Child({ transferFunction }) {
+    transferFunction(DATA)
+    return <div ></div>
   )
 }`}</pre>
-            </li>
-            <li>
-              Put childData as the input of the transferData function
-              <pre>{`onChange={e => transferData(e.target.value)}`}</pre>
-            </li>
-          </ol>
-        </div>
+          </li>
+          <li>
+            <h2> In parent get the data using callback function</h2>
+            <pre>{`export default function Parent() { 
+   return <div >
+   <Child transferFunction={DATA=>ReceiveData(DATA)}/>
+   </div>
+)
+}`}</pre>
+          </li>
+        </ol>
       </div>
     </div>
   )
